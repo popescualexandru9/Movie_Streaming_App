@@ -39,11 +39,15 @@ public class MovieModel implements Parcelable {
     private String releaseDate;
     @NonNull
     private String genres;
+    @NonNull
+    private String videoId;
 
     public MovieModel() {
     };
 
-    public MovieModel(Integer id, @NonNull String title, @NonNull Integer duration, @NonNull String shortDesc, @NonNull String fullDesc, @NonNull Integer imageThumbnailId, @NonNull Integer imageCoverId, @NonNull String releaseDate, @NonNull String[] genres) {
+    public MovieModel(Integer id, @NonNull String title, @NonNull Integer duration, @NonNull String shortDesc,
+                      @NonNull String fullDesc, @NonNull Integer imageThumbnailId, @NonNull Integer imageCoverId,
+                      @NonNull String releaseDate, @NonNull String[] genres, @NonNull String videoId) {
         this.id = id;
         this.title = title;
         this.duration = duration;
@@ -53,11 +57,12 @@ public class MovieModel implements Parcelable {
         this.imageCoverId = imageCoverId;
         this.releaseDate = releaseDate;
         this.genres = TextUtils.join(" · ", genres);
+        this.videoId = videoId;
 
     }
 
     public MovieModel(Parcel in){
-        String[] data = new String[9];
+        String[] data = new String[10];
 
         in.readStringArray(data);
         // the order needs to be the same as in writeToParcel() method
@@ -68,19 +73,24 @@ public class MovieModel implements Parcelable {
         this.fullDesc = data[4];
         this.releaseDate = data[5];
         this.genres = data[6];
-        this.imageThumbnailId = Integer.valueOf(data[7]);
-        this.imageCoverId = Integer.valueOf(data[8]);
+        this.videoId = data[7];
+        this.imageThumbnailId = Integer.valueOf(data[8]);
+        this.imageCoverId = Integer.valueOf(data[9]);
+
     }
 
     @Override
     public int describeContents() {
         return 0;
     }
+
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 
         dest.writeStringArray(new String[] {
-                this.id.toString(), this.title, this.duration.toString(), this.shortDesc, this.fullDesc, this.releaseDate, this.genres,
+                this.id.toString(), this.title, this.duration.toString(), this.shortDesc,
+                this.fullDesc, this.releaseDate, this.genres, this.videoId,
                 this.imageThumbnailId.toString(), this.imageCoverId.toString()});
     }
 
@@ -172,5 +182,15 @@ public class MovieModel implements Parcelable {
     public void setGenres(@NonNull String genres) {
         this.genres = genres;
     }
+
+    @NonNull
+    public String getVideoId() {
+        return videoId;
+    }
+
+    public void setVideoId(@NonNull String videoId) {
+        this.videoId = videoId;
+    }
+
     //endregion
 }

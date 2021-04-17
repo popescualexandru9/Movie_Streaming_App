@@ -7,7 +7,8 @@
     <string name="description"> The Avengers began as a group of extraordinary individuals who were assembled to defeat Loki and his Chitauri army in New York City. Since then, the team has expanded its roster and faced a host of new threats, while dealing with their own turmoil. </string>
     <string name="genre">Drama • Comedy • Thriller • Violent • Dark • Crime</string>
     <string name="releaseDate">2021</string>
-    <string name="notifDesc">Put your phone on DND and enjoy it! &#128516;</string>
+    <string name="notifDesc">Get your snacks and tap here to watch it! &#128516;</string>
+    <string name="notifTitle">The movie is about to start!</string>
     <string name="log_in">Log In</string>
 
     <string name="detail_movie_releaseDate">Release Date →   </string>

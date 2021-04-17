@@ -84,7 +84,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MovieViewH
 
             infoBtn.setOnClickListener(v -> clickListeners.infoButton(item));
 
-            playFab.setOnClickListener(v -> clickListeners.playFab());
+            playFab.setOnClickListener(v -> clickListeners.playFab(item));
 
         }
     }

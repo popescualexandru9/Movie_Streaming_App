@@ -2,6 +2,8 @@ package com.example.moviestreamingapp.fragments;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.moviestreamingapp.BuildConfig;
+import com.example.moviestreamingapp.StreamingMovieActivity;
 import com.example.moviestreamingapp.model.CustomAdapter;
 import com.example.moviestreamingapp.model.MovieModel;
 import com.example.moviestreamingapp.model.ClickListeners;
@@ -26,9 +30,9 @@ import com.example.moviestreamingapp.R;
 import com.example.moviestreamingapp.model.operations.GetMoviesOp;
 import com.example.moviestreamingapp.model.operations.InsertMovieOp;
 import com.example.moviestreamingapp.model.operations.MovieOperations;
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
 
 public class FirstFragment extends Fragment implements ClickListeners, MovieOperations {
-    public static String MOVIE = "movie";
     private static List <MovieModel> movieList = new ArrayList<> ();
     private View View;
 
@@ -47,7 +51,7 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
     @Override
     public void infoButton(MovieModel item) {
         Bundle bundle = new Bundle();
-        bundle.putParcelable(MOVIE,  item);
+        bundle.putParcelable("movie",  item);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -61,13 +65,19 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
     }
 
     @Override
-    public void playFab() {
+    public void playFab(MovieModel item) {
         String CHANNEL_ID = "channel";
+        Intent notifyIntent = YouTubeStandalonePlayer.createVideoIntent(getActivity(), BuildConfig.GOOGLE_API_KEY, item.getVideoId() , 0, true,false);
+        PendingIntent notifyPendingIntent = PendingIntent.getActivity(
+                        getActivity(), 0, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT
+                );
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle("The movie has started!")
+                .setContentTitle(getString(R.string.notifTitle))
                 .setContentText(getString(R.string.notifDesc))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(notifyPendingIntent);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = getString(R.string.channel_name);
@@ -109,7 +119,8 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
                 R.drawable.the_shawnshank_thumbnail,
                 R.drawable.the_shawnshank_cover,
                 "14 Oct 1994",
-                new String[] {"Drama"}
+                new String[] {"Drama"},
+                "P9mwtI82k6E"
         );
 
         MovieModel movie2 = new MovieModel(
@@ -121,7 +132,8 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
                 R.drawable.the_god_father_thumbnail,
                 R.drawable.the_god_father_cover,
                 "12 Mar 1972",
-                new String[] {"Crime","Drama"}
+                new String[] {"Crime","Drama"},
+                "CWoQlDlyQj4"
         );
 
         MovieModel movie3 = new MovieModel(
@@ -133,7 +145,8 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
                 R.drawable.the_god_father2_thumbnail,
                 R.drawable.the_god_father2_cover,
                 "18 Dec 1974",
-                new String[] {"Crime","Drama"}
+                new String[] {"Crime","Drama"},
+                "OA1ij0alE0w"
         );
 
         MovieModel movie4 = new MovieModel(
@@ -145,7 +158,8 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
                 R.drawable.the_dark_night_thumbnail,
                 R.drawable.the_dark_night_cover,
                 "12 Jul 2008",
-                new String[] {"Action","Crime","Drama","Thriller"}
+                new String[] {"Action","Crime","Drama","Thriller"},
+                "TQfATDZY5Y4"
         );
         MovieModel movie5 = new MovieModel(
                 5,
@@ -156,7 +170,8 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
                 R.drawable.schindlers_list_thumbnail,
                 R.drawable.schindlers_list_cover,
                 "4 Feb 1994",
-                new String[] {"Biography","Drama","History"}
+                new String[] {"Biography","Drama","History"},
+                "gG22XNhtnoY"
         );
 
         MovieModel[] movies= new MovieModel[] {movie1,movie2,movie3,movie4,movie5};

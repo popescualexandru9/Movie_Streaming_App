@@ -13,6 +13,7 @@ import com.example.moviestreamingapp.fragments.FirstFragment;
 import com.example.moviestreamingapp.model.MovieModel;
 import com.example.moviestreamingapp.model.operations.GetMoviesOp;
 import com.example.moviestreamingapp.model.operations.InsertMovieOp;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,4 @@ public class MainActivity extends AppCompatActivity  {
                     .commit();
         }
     }
-
-
-
 }
