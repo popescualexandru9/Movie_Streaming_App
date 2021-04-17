@@ -18,4 +18,6 @@
     <string name="pwd">Password</string>
     <string name="title">Title</string>
 
+    <string name="facebook_app_id">460262935247727</string>
+    <string name="fb_login_protocol_scheme">fb460262935247727</string>
 </resources>

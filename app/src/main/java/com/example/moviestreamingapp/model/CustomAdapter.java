@@ -1,6 +1,5 @@
 package com.example.moviestreamingapp.model;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -59,11 +57,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MovieViewH
         private final Button infoBtn;
         private final FloatingActionButton playFab;
 
-        private final ConstraintLayout layout;
 
         public MovieViewHolder(View view) {
             super(view);
-            layout =  view.findViewById(R.id.container);
             title = view.findViewById(R.id.movie_title);
             duration = view.findViewById(R.id.movie_duration);
             description = view.findViewById(R.id.movie_description);

@@ -27,6 +27,7 @@ import com.example.moviestreamingapp.model.MovieModel;
 import com.example.moviestreamingapp.model.ClickListeners;
 import com.example.moviestreamingapp.R;
 import com.example.moviestreamingapp.model.operations.GetMoviesOp;
+import com.example.moviestreamingapp.model.operations.InsertMovieOp;
 import com.example.moviestreamingapp.model.operations.MovieOperations;
 import com.example.moviestreamingapp.model.operations.UpdateMoviesOp;
 import com.google.android.youtube.player.YouTubeStandalonePlayer;
@@ -45,10 +46,10 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
 
         MovieModel[] movies = seedMovies();
         //Initial seed for DB
-        //new InsertMovieOp(this).execute(movies);
+        new InsertMovieOp(this).execute(movies);
 
         //Follow-up updates
-        new UpdateMoviesOp(this).execute(movies);
+        //new UpdateMoviesOp(this).execute(movies);
 
         new GetMoviesOp(this).execute();
     }
@@ -182,7 +183,6 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
                 "gG22XNhtnoY"
         );
 
-        MovieModel[] movies= new MovieModel[] {movie1,movie2,movie3,movie4,movie5};
-        return movies;
+        return new MovieModel[] {movie1,movie2,movie3,movie4,movie5};
     }
 }
