@@ -4,10 +4,10 @@ import android.os.AsyncTask;
 import com.example.moviestreamingapp.MyApplication;
 import com.example.moviestreamingapp.model.MovieModel;
 
-public class InsertMovieOp extends AsyncTask<MovieModel, Void, String> {
+public class UpdateMoviesOp extends AsyncTask<MovieModel, Void, String> {
     MovieOperations listener;
 
-    public InsertMovieOp(MovieOperations listener){
+    public UpdateMoviesOp(MovieOperations listener){
         this.listener= listener;
     }
 
@@ -16,7 +16,7 @@ public class InsertMovieOp extends AsyncTask<MovieModel, Void, String> {
         try {
             MyApplication.getAppDatabase().
                     movieDao().
-                    insertMovies(movies);
+                    updateMovies(movies);
         } catch(Exception e){
             return "error";
         }

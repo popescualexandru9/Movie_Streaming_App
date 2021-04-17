@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public interface MovieOperations {
     void insertMovies(String result);
+    void updateMovies(String result);
     void getMovies(ArrayList<MovieModel> movies);
 
 }

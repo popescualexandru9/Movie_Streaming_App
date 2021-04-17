@@ -22,14 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.moviestreamingapp.BuildConfig;
-import com.example.moviestreamingapp.StreamingMovieActivity;
 import com.example.moviestreamingapp.model.CustomAdapter;
 import com.example.moviestreamingapp.model.MovieModel;
 import com.example.moviestreamingapp.model.ClickListeners;
 import com.example.moviestreamingapp.R;
 import com.example.moviestreamingapp.model.operations.GetMoviesOp;
-import com.example.moviestreamingapp.model.operations.InsertMovieOp;
 import com.example.moviestreamingapp.model.operations.MovieOperations;
+import com.example.moviestreamingapp.model.operations.UpdateMoviesOp;
 import com.google.android.youtube.player.YouTubeStandalonePlayer;
 
 public class FirstFragment extends Fragment implements ClickListeners, MovieOperations {
@@ -44,7 +43,13 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
         getActivity().setTitle(getString(R.string.app_name));
         View=view;
 
-        insertAllMovies();
+        MovieModel[] movies = seedMovies();
+        //Initial seed for DB
+        //new InsertMovieOp(this).execute(movies);
+
+        //Follow-up updates
+        new UpdateMoviesOp(this).execute(movies);
+
         new GetMoviesOp(this).execute();
     }
 
@@ -101,6 +106,9 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
     }
 
     @Override
+    public void updateMovies(String result) { Log.v("Update Movies",result); }
+
+    @Override
     public void getMovies(ArrayList<MovieModel> movies) {
         movieList=movies;
 
@@ -109,7 +117,7 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
         rv.setAdapter(adapter);
     }
 
-    private void insertAllMovies(){
+    private MovieModel[] seedMovies(){
         MovieModel movie1 = new MovieModel(
                 1,
                 "The Shawshank Redemption",
@@ -119,7 +127,7 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
                 R.drawable.the_shawnshank_thumbnail,
                 R.drawable.the_shawnshank_cover,
                 "14 Oct 1994",
-                new String[] {"Drama"},
+                new String[] {"Drama", "Crime"},
                 "P9mwtI82k6E"
         );
 
@@ -175,6 +183,6 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
         );
 
         MovieModel[] movies= new MovieModel[] {movie1,movie2,movie3,movie4,movie5};
-        new InsertMovieOp(this).execute(movies);
+        return movies;
     }
 }
