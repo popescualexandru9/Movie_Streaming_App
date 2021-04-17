@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp"
+    android:background="@drawable/bg_movie_item">
+
+    <ImageView
+        android:id="@+id/movie_cover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:adjustViewBounds="true"
+
+        android:contentDescription="@string/TODO"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avengers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_duration"
+        tools:text="Avengers: Infinity War" />
+
+    <TextView
+        android:id="@+id/movie_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:drawableLeftCompat="@drawable/sharp_schedule_white_18"
+        app:layout_constraintStart_toEndOf="@+id/movie_releaseYear"
+        app:layout_constraintTop_toBottomOf="@+id/movie_cover"
+        tools:text="149min" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/play_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_play_arrow_black_24dp"
+        android:tint="#CD1B1B"
+        app:backgroundTint="#00DBFF"
+        app:layout_constraintBottom_toBottomOf="@+id/movie_cover"
+        app:layout_constraintEnd_toEndOf="@+id/movie_cover"
+        app:layout_constraintStart_toStartOf="@+id/movie_cover"
+        app:layout_constraintTop_toTopOf="@+id/movie_cover"
+        android:contentDescription="@string/TODO" />
+
+
+    <Button
+        android:id="@+id/movie_infoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#FF00DBFF"
+        android:color="@color/white"
+        android:drawableEnd="@drawable/outline_info_black_18"
+        android:text="@string/info"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_cover" />
+
+    <TextView
+        android:id="@+id/movie_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="12dp"
+        android:color="#4A4A4A"
+        android:text="@string/description"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_title" />
+
+    <View
+        android:id="@+id/hr"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FF00DBFF"
+        app:layout_constraintBottom_toTopOf="@+id/movie_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_title" />
+
+    <TextView
+        android:id="@+id/movie_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/genre"
+        android:textColor="#FF00DBFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_description" />
+
+    <TextView
+        android:id="@+id/movie_releaseYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/releaseDate"
+        android:textColor="@color/white"
+        app:drawableLeftCompat="@drawable/outline_event_white_18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_cover" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MovieX</string>
+    <string name="error_msg">Name field must be completed</string>
+    <string name="channel_name">Channel name</string>
+    <string name="TODO">TO DO</string>
+    <string name="info"> Info </string>
+    <string name="description"> The Avengers began as a group of extraordinary individuals who were assembled to defeat Loki and his Chitauri army in New York City. Since then, the team has expanded its roster and faced a host of new threats, while dealing with their own turmoil. </string>
+    <string name="genre">Drama • Comedy • Thriller • Violent • Dark • Crime</string>
+    <string name="releaseDate">2021</string>
+    <string name="notifDesc">Put your phone on DND and enjoy it! &#128516;</string>
+    <string name="log_in">Log In</string>
+
+    <string name="detail_movie_releaseDate">Release Date →   </string>
+    <string name="detail_movie_runTime">Runtime →   </string>
+    <string name="detail_movie_genre">Genres →   </string>
+    <string name="user">User</string>
+    <string name="pwd">Password</string>
+    <string name="title">Title</string>
+
+</resources>

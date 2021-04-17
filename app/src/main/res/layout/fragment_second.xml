@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+        <data>
+
+        </data>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#010609"
+           >
+
+                <ImageView
+                    android:id="@+id/detail_movie_cover"
+                    android:layout_width="0dp"
+                    android:layout_height="245dp"
+                    android:adjustViewBounds="true"
+
+                    android:contentDescription="@string/TODO"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/avengers"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/play_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:contentDescription="@string/TODO"
+                    android:src="@drawable/ic_play_arrow_black_24dp"
+                    app:backgroundTint="#00DBFF"
+                    app:layout_constraintBottom_toBottomOf="@+id/detail_movie_cover"
+                    app:layout_constraintEnd_toEndOf="@+id/detail_movie_cover"
+                    app:layout_constraintStart_toStartOf="@+id/detail_movie_cover"
+                    app:layout_constraintTop_toTopOf="@+id/detail_movie_cover"
+                    android:focusable="true" />
+
+                <ImageView
+                    android:id="@+id/detail_movie_img"
+                    android:layout_width="125dp"
+                    android:layout_height="175dp"
+                    android:layout_marginStart="16dp"
+                    android:scaleType="centerCrop"
+                    android:transitionName="sharedName"
+                    app:layout_constraintBottom_toBottomOf="@+id/detail_movie_cover"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_movie_cover"
+                    app:srcCompat="@drawable/avengers"
+                    android:contentDescription="@string/TODO" />
+
+                <TextView
+                    android:id="@+id/detail_movie_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/title"
+                    android:textColor="@android:color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/detail_movie_img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/detail_movie_img"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_movie_cover" />
+
+                <TextView
+                    android:id="@+id/detail_movie_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/description"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_movie_genres" />
+
+                <TextView
+                    android:id="@+id/detail_movie_runtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/detail_movie_runTime"
+                    app:drawableLeftCompat="@drawable/sharp_schedule_white_18"
+                    android:drawablePadding ="3dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_movie_img" />
+
+                <TextView
+                    android:id="@+id/detail_movie_release"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/detail_movie_releaseDate"
+                    app:drawableLeftCompat="@drawable/outline_event_white_18"
+                    android:drawablePadding ="3dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_movie_runtime" />
+
+                <TextView
+                    android:id="@+id/detail_movie_genres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/detail_movie_genre"
+                    app:drawableLeftCompat="@drawable/outline_theater_comedy_white_18"
+                    android:drawablePadding ="3dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_movie_release" />
+
+
+                <View
+                    android:id="@+id/hr"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="#FF00DBFF"
+                    app:layout_constraintBottom_toTopOf="@+id/detail_movie_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_movie_genres" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+</layout>
