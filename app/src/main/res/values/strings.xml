@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MovieX</string>
-    <string name="error_msg">Name field must be completed</string>
     <string name="channel_name">Channel name</string>
     <string name="TODO">TO DO</string>
     <string name="info"> Info </string>
@@ -9,7 +8,6 @@
     <string name="releaseDate">2021</string>
     <string name="notifDesc">Get your snacks and tap here to watch it! &#128516;</string>
     <string name="notifTitle">The movie is about to start!</string>
-    <string name="log_in">Log In</string>
 
     <string name="detail_movie_releaseDate">Release Date →   </string>
     <string name="detail_movie_runTime">Runtime →   </string>
@@ -17,6 +15,9 @@
     <string name="user">User</string>
     <string name="pwd">Password</string>
     <string name="title">Title</string>
+    <string name="loggedOut">Logged out &#128531;</string>
+    <string name="connect">Connect</string>
+
 
     <string name="facebook_app_id">460262935247727</string>
     <string name="fb_login_protocol_scheme">fb460262935247727</string>

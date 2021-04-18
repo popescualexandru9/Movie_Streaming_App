@@ -46,10 +46,10 @@ public class FirstFragment extends Fragment implements ClickListeners, MovieOper
 
         MovieModel[] movies = seedMovies();
         //Initial seed for DB
-        new InsertMovieOp(this).execute(movies);
+        //new InsertMovieOp(this).execute(movies);
 
         //Follow-up updates
-        //new UpdateMoviesOp(this).execute(movies);
+        new UpdateMoviesOp(this).execute(movies);
 
         new GetMoviesOp(this).execute();
     }
